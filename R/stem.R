@@ -49,6 +49,15 @@ stem <- function(ctFile){
         }
       }
     }
+    nullNum <- c()
+    for(i in 1:length(stem_list)){
+      if(length(stem_list[[i]]) == 0){
+        nullNum <- c(nullNum,-i)
+      }
+    }
+    if(length(nullNum) != 0){
+      stem_list <- stem_list[nullNum]
+    }
     stem_number <- length(stem_list)
     stem_max <- length(stem_list[[1]])
     stem_min <- length(stem_list[[1]])

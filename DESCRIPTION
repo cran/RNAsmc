@@ -1,7 +1,7 @@
 Package: RNAsmc
 Type: Package
 Title: RNA Secondary Structure Module Mining, Comparison and Plotting
-Version: 0.2.0
+Version: 0.3.0
 Author: Zheng HeWei
 Depends: RRNA,stats,graphics
 Maintainer: Zheng HeWei<zhenghw@hrbmu.edu.cn>
@@ -9,6 +9,6 @@ Description: Provides function for RNA secondary structure plotting, comparison 
 License: GPL-2
 LazyData: TRUE
 NeedsCompilation: no
-Packaged: 2018-03-12 09:26:40 UTC; Administrator
+Packaged: 2018-03-19 00:51:38 UTC; Administrator
 Repository: CRAN
-Date/Publication: 2018-03-12 09:34:30 UTC
+Date/Publication: 2018-03-19 04:07:42 UTC

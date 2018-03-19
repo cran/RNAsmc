@@ -1,4 +1,4 @@
-5e6a9ac52270da4ac0a46467c8720d2e *DESCRIPTION
+73df20296da8848ef56227707fd45cf9 *DESCRIPTION
 3d5169e0a59a4052e46e1765489d5833 *NAMESPACE
 06a35d5fb094609cc94a585d22ee669f *R/RNAstrCluster.R
 f16d90a345374b687c88eb18c9acb9e3 *R/RNAstrPlot.R
@@ -12,7 +12,7 @@ c925202772a1a3bc3b4a78f76cf50672 *R/internalLoopsPlot.R
 83b99768bdfe86e76c76b18df1e5c4c7 *R/internal_loop.R
 4d904736365335b403a383d91e935613 *R/multiBranchLoopsPlot.R
 bcef882887e21b534ea3871a4910b089 *R/multi_branch_loop.R
-7801c0316ce2ff42b2ad2c21eb5d705d *R/stem.R
+864c95cc1fd9c008d69f5483755cfb6c *R/stem.R
 a7470e7258b4b1a0145990cd9098ffce *R/stemPlot.R
 89e57d2a68a7e247d7bd2c99ccf9f363 *data/DataCluster1.txt.gz
 987b4ec05d42e9351ff7f2d47e66b3c2 *data/DataCluster2.txt.gz
