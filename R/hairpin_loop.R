@@ -1,4 +1,3 @@
-###hairpin_loop
 hairpin_loop <- function(ctFile){
   RNAstructure <- matrix(c(as.numeric(ctFile[,5]),as.numeric(ctFile[,6])),ncol = 2,byrow = F)
   arr_line <- c()
@@ -10,8 +9,8 @@ hairpin_loop <- function(ctFile){
     num_max <- max(RNAstructure[i,1],RNAstructure[i,2])
     arr <- arr0[(num_min+1):(num_max-1)]
     if(num_min != 0 && num_max != 0 && length(which(arr != 0)) == 0){
-      line <- paste(RNAstructure[i,1],"_",RNAstructure[i,2])
-      line2 <- paste(RNAstructure[i,2],"_",RNAstructure[i,1])
+      line <- paste0(RNAstructure[i,1],"_",RNAstructure[i,2])
+      line2 <- paste0(RNAstructure[i,2],"_",RNAstructure[i,1])
       arr_line <- c(arr_line,line)
       if(length(which(arr_line == line2))==0){
         hairpin_loops[[n]] <- (num_min+1):(num_max-1)
@@ -36,17 +35,11 @@ hairpin_loop <- function(ctFile){
     }
     hairpin_length <- length(unlist(hairpin_loops))
     hairpin_mean <- hairpin_length/hairpin_number
-    
     attr(hairpin_loops,"number of bases in hairpin loops") <- hairpin_length
     attr(hairpin_loops,"number of hairpin loops") <- hairpin_number
     attr(hairpin_loops,"Maximum length of hairpin loops") <- hairpin_max
     attr(hairpin_loops,"Minimum length of hairpin loops") <- hairpin_min
     attr(hairpin_loops,"Average length of hairpin loops") <- hairpin_mean
-    
-    
-    
-    
     return(hairpin_loops)
   }
-  
 }

@@ -5,12 +5,14 @@ RNAstrPlot <- function(ctFile){
   internal <- internal_loop(ctFile)
   multi_branch <- multi_branch_loop(ctFile)
   stems <- stem(ctFile)
+  external <- external_loop(ctFile)
   ###
   bulge_arr <- unlist(bulge)
   hairpin_arr <- unlist(hairpin)
   internal_arr <- unlist(internal)
   multi_branch_arr <- unlist(multi_branch)
   stems_arr <- unlist(stems)
+  external_arr <- unlist(external)
   ###
   dot <- ct2dot(ctFile)
   ct <- makeCt(dot[[1]][1],dot[[2]][1])
@@ -21,38 +23,41 @@ RNAstrPlot <- function(ctFile){
           ,main = "RNA secondary structure",
           modp=c(bulge_arr,hairpin_arr
                  ,internal_arr,multi_branch_arr
-                 ,stems_arr)
+                 ,stems_arr,external_arr)
           ,mod=c(rep(16,(length(bulge_arr)+length(hairpin_arr)
                          +length(internal_arr)
                          +length(multi_branch_arr)
-                         +length(stems_arr))))
+                         +length(stems_arr)
+                         +length(external_arr))
+                         ))
           ,modcol=c(rep(4,length(bulge_arr))
                     ,rep(13,length(hairpin_arr))
                     ,rep(7,length(internal_arr))
                     ,rep(10,length(multi_branch_arr))
-                    ,rep(19,length(stems_arr)))
+                    ,rep(19,length(stems_arr))
+                    ,rep(6,length(external_arr)))
 )
   ###
   graphics::par(mar = c(0,0,3,0))
   graphics::plot(c(1:4),type = "n",xaxt = "n",yaxt="n"
        ,xlab = "",ylab = "",bty = "n")
-  graphics::legend(1, 4, 
-         c("hairpin loop","bulge loop","internal loop"
-            ,"multiBranch loop","stem"), col = c(13,4,7,10,19)
-         ,text.col = c(13,4,7,10,19),pch = c(19,19,19,19,19),
+  graphics::legend(1, 4,
+         c("bulge loop","external loop","hairpin loop","internal loop"
+            ,"multiBranch loop","stem"), col = c(4,6,13,7,10,19)
+         ,text.col = c(4,6,13,7,10,19),pch = c(19,19,19,19,19,19),
          bg = "gray75")
 
-  ############## 
+  ##############
   print("------------------------------------------------------")
   print("*                                                    *")
   print("*   what print below is the information of result    *")
   print("*                                                    *")
   print("------------------------------------------------------")
-  
+
   ###
   #
-  mat <- matrix(rep(0,5*5),nrow = 5)
-  rownames(mat) <- c("bulge loops","hairpin loop","internal loop"
+  mat <- matrix(rep(0,6*5),nrow = 6)
+  rownames(mat) <- c("bulge loops","external loop","hairpin loop","internal loop"
                      ,"multi branch loop","stem")
   colnames(mat) <- c("number of bases","number of loops"
                      ,"Maximum length","Minimum length"
@@ -80,6 +85,28 @@ RNAstrPlot <- function(ctFile){
     mat[1,4] <- bulge_min
     mat[1,5] <- bulge_mean
   }
+  ###external loop
+  if(length(external) != 0){
+    external_length <- length(external_arr)
+    external_number <- length(external)
+    external_max <- length(external[[1]])
+    external_min <- length(external[[1]])
+    for (i in 1:length(external)) {
+      if(length(external[[i]]) > external_max){
+        external_max <- length(external[[i]])
+      }
+      if(length(external[[i]]) < external_min){
+        external_min <- length(external[[i]])
+      }
+    }
+    external_mean <- external_length/external_number
+    #
+    mat[2,1] <- external_length
+    mat[2,2] <- external_number
+    mat[2,3] <- external_max
+    mat[2,4] <- external_min
+    mat[2,5] <- external_mean
+  }
   #hairpin
   if(length(hairpin) != 0){
     hairpin_length <- length(hairpin_arr)
@@ -96,11 +123,11 @@ RNAstrPlot <- function(ctFile){
     }
     hairpin_mean <- hairpin_length/hairpin_number
     #
-    mat[2,1] <- hairpin_length
-    mat[2,2] <- hairpin_number
-    mat[2,3] <- hairpin_max
-    mat[2,4] <- hairpin_min
-    mat[2,5] <- hairpin_mean
+    mat[3,1] <- hairpin_length
+    mat[3,2] <- hairpin_number
+    mat[3,3] <- hairpin_max
+    mat[3,4] <- hairpin_min
+    mat[3,5] <- hairpin_mean
   }
   #internal
   if(length(internal) != 0){
@@ -118,11 +145,11 @@ RNAstrPlot <- function(ctFile){
     }
     internal_mean <- internal_length/internal_number
     #
-    mat[3,1] <- internal_length
-    mat[3,2] <- internal_number
-    mat[3,3] <- internal_max
-    mat[3,4] <- internal_min
-    mat[3,5] <- internal_mean
+    mat[4,1] <- internal_length
+    mat[4,2] <- internal_number
+    mat[4,3] <- internal_max
+    mat[4,4] <- internal_min
+    mat[4,5] <- internal_mean
   }
   #multi-branch
   if(length(multi_branch) != 0){
@@ -140,12 +167,12 @@ RNAstrPlot <- function(ctFile){
     }
     multi_branch_mean <- multi_branch_length/multi_branch_number
     #
-    mat[4,1] <- multi_branch_length
-    mat[4,2] <- multi_branch_number
-    mat[4,3] <- multi_branch_max
-    mat[4,4] <- multi_branch_min
-    mat[4,5] <- multi_branch_mean
-    
+    mat[5,1] <- multi_branch_length
+    mat[5,2] <- multi_branch_number
+    mat[5,3] <- multi_branch_max
+    mat[5,4] <- multi_branch_min
+    mat[5,5] <- multi_branch_mean
+
   }
   #stems
   if(length(stems) != 0){
@@ -163,17 +190,20 @@ RNAstrPlot <- function(ctFile){
     }
     stems_mean <- stems_length/stems_number
     #
-    mat[5,1] <- stems_length
-    mat[5,2] <- stems_number
-    mat[5,3] <- stems_max
-    mat[5,4] <- stems_min
-    mat[5,5] <- stems_mean
+    mat[6,1] <- stems_length
+    mat[6,2] <- stems_number
+    mat[6,3] <- stems_max
+    mat[6,4] <- stems_min
+    mat[6,5] <- stems_mean
   }
   #
   result <- list()
   result[["sumery of result"]] <- mat
   if(length(bulge) != 0){
     result[["bases in bulge loops"]] <- sort(bulge_arr)
+  }
+  if(length(external) != 0){
+    result[["bases in external loops"]] <- sort(external_arr)
   }
   if(length(hairpin) != 0){
     result[["bases in hairpin loops"]] <- sort(hairpin_arr)

@@ -1,8 +1,8 @@
-\name{compare}
-\alias{compare}
-\title{compare}
+\name{strComparePlot}
+\alias{strComparePlot}
+\title{strComparePlot}
 \usage{
-compare(ctFile1,ctFile2)
+strComparePlot(ctFile1,ctFile2)
 }
 \arguments{
 \item{ctFile1}{A RNA secondary structure file containing structure information}
@@ -16,9 +16,9 @@ Returns a numerical value which represent the similarity of the two RNA secondar
 }
 \examples{
 ###
-data(DataCompareStr1)
-data(DataCompareStr2)
-#####RNAstrPlot(DataCompareStr1)
-#####RNAstrPlot(DataCompareStr2)
-compare(DataCompareStr1,DataCompareStr2)
+data(DataCluster1)
+data(DataCluster2)
+#####RNAstrPlot(DataCluster1)
+#####RNAstrPlot(DataCluster2)
+strComparePlot(DataCluster1,DataCluster2)
 }
