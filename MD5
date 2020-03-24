@@ -1,5 +1,6 @@
-8279799a4dc80e2143228f8daa3687fb *DESCRIPTION
-3d5169e0a59a4052e46e1765489d5833 *NAMESPACE
+46a04b98ec5d39a967ff57d1a9528656 *DESCRIPTION
+10488e729b335b22a71c99d47a015cd3 *NAMESPACE
+fd45230aa743df6694b5ec1f0af7936e *R/RNAcirPlot.R
 91048ab2e381f29b49e3658e1949f8d4 *R/RNAstrCluster.R
 3b0d0f8984e18d2b7434c79a6ee6bf9e *R/RNAstrPlot.R
 59e3f0bf4b464d6792683ac8cfdfd7f9 *R/bulgeLoopsPlot.R
@@ -31,6 +32,7 @@ fa5b05d8c848889c646aa8069bb40fd6 *man/DataCluster2.rd
 d6018d3832852bd98f782d35a6229cff *man/DataCompareStr1.rd
 502ad702e7ebeaec877dc6fcc8dc1b6b *man/DataCompareStr2.rd
 38e8dd7b31476f2c74954c58b4bfdd67 *man/DataRNAstr.rd
+a65a8887ef509fc912d08f9e7d9f0102 *man/RNAcirPlot.rd
 a27d663b5fe162dc0cd9751a2a33467a *man/RNAstrCluster.rd
 d13352a662f574b77019f8198918ac84 *man/RNAstrPlot.rd
 ec08fc8ce7bf0fbb82a7de0b85a0517b *man/bulgeLoopsPlot.rd
