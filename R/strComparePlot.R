@@ -6,7 +6,7 @@ strComparePlot <- function(ctFile1,ctFile2){
     RNAstructure1 <- ctFile2
     RNAstructure2 <- ctFile1
   }
-  blastResult <- strCompare(RNAstructure1,RNAstructure2)
+  blastResult <- strCompare(RNAstructure1,RNAstructure2,randomTime = 1)
   codeBlast1 <- blastResult$longSeqCode
   codeBlast2 <- blastResult$shortSeqCode
   codeList1 <- strsplit(codeBlast1,split = "")[[1]]
@@ -43,22 +43,22 @@ strComparePlot <- function(ctFile1,ctFile2){
     }
   }
   RNAlength <- length(codeList1)
-  graphics::plot(0,0,xlim = c(0,RNAlength*1.25),ylim = c(0,RNAlength*1.25),type = "n",xaxt="n",yaxt="n",bty = "n",xlab = "",ylab = "")
+  plot(0,0,xlim = c(0,RNAlength*1.25),ylim = c(0,RNAlength*1.25),type = "n",xaxt="n",yaxt="n",bty = "n",xlab = "",ylab = "")
   for(index1 in 1:RNAlength){
     if(codeList1[index1] == "-"){
-      graphics::points(index1,RNAlength*0.75,pch = 20)
+      points(index1,RNAlength*0.75,pch = 20)
     }else if(codeList1[index1] == "H"){
-      graphics::points(index1,RNAlength*0.75,pch = 20,col = 13)
+      points(index1,RNAlength*0.75,pch = 20,col = 13)
     }else if(codeList1[index1] == "B"){
-      graphics::points(index1,RNAlength*0.75,pch = 20,col = 4)
+      points(index1,RNAlength*0.75,pch = 20,col = 4)
     }else if(codeList1[index1] == "I"){
-      graphics::points(index1,RNAlength*0.75,pch = 20,col = 7)
+      points(index1,RNAlength*0.75,pch = 20,col = 7)
     }else if(codeList1[index1] == "M"){
-      graphics::points(index1,RNAlength*0.75,pch = 20,col = 10)
+      points(index1,RNAlength*0.75,pch = 20,col = 10)
     }else if((codeList1[index1] == "S") || (codeList1[index1] == "s")){
-      graphics::points(index1,RNAlength*0.75,pch = 20,col = 19)
+      points(index1,RNAlength*0.75,pch = 20,col = 19)
     }else{
-      graphics::points(index1,RNAlength*0.75,pch = 20,col = "hotpink")
+      points(index1,RNAlength*0.75,pch = 20,col = "hotpink")
     }
 
   }
@@ -68,19 +68,19 @@ strComparePlot <- function(ctFile1,ctFile2){
   for(index2 in 1:RNAlength){
     if(codeList2[index2] == "-"){
       #lines(c(0,RNAlength),c(RNAlength/2,RNAlength/2),lty = 3)
-      graphics::points(index2,RNAlength*0.7,pch = 20)
+      points(index2,RNAlength*0.7,pch = 20)
     }else if(codeList2[index2] == "H"){
-      graphics::points(index2,RNAlength*0.7,pch = 20,col = 13)
+      points(index2,RNAlength*0.7,pch = 20,col = 13)
     }else if(codeList2[index2] == "B"){
-      graphics::points(index2,RNAlength*0.7,pch = 20,col = 4)
+      points(index2,RNAlength*0.7,pch = 20,col = 4)
     }else if(codeList2[index2] == "I"){
-      graphics::points(index2,RNAlength*0.7,pch = 20,col = 7)
+      points(index2,RNAlength*0.7,pch = 20,col = 7)
     }else if(codeList2[index2] == "M"){
-      graphics::points(index2,RNAlength*0.7,pch = 20,col = 10)
+      points(index2,RNAlength*0.7,pch = 20,col = 10)
     }else if((codeList2[index2] == "S") || (codeList2[index2] == "s")){
-      graphics::points(index2,RNAlength*0.7,pch = 20,col = 19)
+      points(index2,RNAlength*0.7,pch = 20,col = 19)
     }else{
-      graphics::points(index2,RNAlength*0.7,pch = 20,col = "hotpink")
+      points(index2,RNAlength*0.7,pch = 20,col = "hotpink")
     }
 
   }
@@ -91,7 +91,7 @@ strComparePlot <- function(ctFile1,ctFile2){
       r <- (pairCol15[index1] - pairCol16[index1])/2
       x=r*sin(k/180*pi) + (pairCol15[index1] + pairCol16[index1])/2
       y=r*cos(k/180*pi) + RNAlength*0.75
-      graphics::lines(x,y,col="red")
+      lines(x,y,col="red")
     }
   }
   for(index2 in 1:length(pairCol25)){
@@ -100,7 +100,7 @@ strComparePlot <- function(ctFile1,ctFile2){
       r <- (pairCol25[index2] - pairCol26[index2])/2
       x=r*sin(k/180*pi) + (pairCol25[index2] + pairCol26[index2])/2
       y=r*cos(k/180*pi) + RNAlength*0.7
-      graphics::lines(x,y,col="red")
+      lines(x,y,col="red")
     }
   }
 print(paste0("similarity:",blastResult$Similarity))

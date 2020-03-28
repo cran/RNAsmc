@@ -26,3 +26,10 @@ importFrom(circlize,circos.trackPlotRegion)
 importFrom(circlize,circos.text)
 importFrom(circlize,circos.link)
 importFrom(circlize,circos.clear)
+importFrom(stats,pnorm)
+importFrom(stats,sd)
+importFrom(graphics,points)
+importFrom(graphics,lines)
+importFrom(graphics,plot)
+
+
