@@ -1,5 +1,7 @@
 RNAstrPlot <- function(ctFile){
   ###
+  oldpar <- graphics::par(no.readonly = TRUE)
+  on.exit(graphics::par(oldpar))
   bulge <- bulge_loop(ctFile)
   hairpin <- hairpin_loop(ctFile)
   internal <- internal_loop(ctFile)
