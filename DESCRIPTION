@@ -1,13 +1,15 @@
 Package: RNAsmc
 Type: Package
 Title: RNA Secondary Structure Module Mining, Comparison and Plotting
-Version: 0.7.0
+Version: 0.8.0
 Author: Zheng HeWei
 Depends: RRNA,stats,graphics,circlize
 Maintainer: Zheng HeWei<406649023@qq.com>
 Description: Provides function for RNA secondary structure plotting, comparison and module mining. Given a RNA secondary structure, you can obtain stem regions, hairpin loops, internal loops, bulge loops and multibranch loops of this RNA structure using this program. They are the basic modules of RNA secondary structure. For each module you get, you can use this program to label the RNA structure with a specific color. You can also use this program to compare two RNA secondary structures to get a score that represents similarity. Reference: Reuter JS, Mathews DH (2010) <doi:10.1186/1471-2105-11-129>.
 License: GPL-2
+Encoding: UTF-8
+LazyData: true
 NeedsCompilation: no
-Packaged: 2021-12-13 02:18:25 UTC; zhenghw
+Packaged: 2023-01-06 00:53:20 UTC; zheng
 Repository: CRAN
-Date/Publication: 2021-12-14 08:40:09 UTC
+Date/Publication: 2023-01-12 08:20:15 UTC
